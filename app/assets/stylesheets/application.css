@@ -1,0 +1,62 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require refinery/formatting
+ *= require refinery/theme
+ *= require_self
+ *= require 'forem/base'
+ */
+
+@import url('refinery/application.css');
+
+body {
+  background: #DDD;
+  font-family: Verdana;
+  font-size: 13px;
+  line-height: 18px;
+  margin:50px 0px; padding:0px;
+  text-align:center;
+}
+
+#body_content, #side_body_content, nav {
+  width: 960px;
+  margin: 0 auto;
+}
+
+#body_content {
+  background-color: #cccccc;
+}
+
+#side_body_content {
+  background-color: #bbbbbb;
+}
+
+#menu ul {
+  list-style: none;
+  padding: 0px;
+}
+
+#menu ul li {
+  float: left;
+  margin-right: 10px;
+}
+
+#menu ul li a {
+  display: block;
+  padding: 5px 10px;
+  text-decoration: none;
+}
+
+#menu ul li.selected a, #menu ul li a:hover {
+  background: #CCC;
+}
