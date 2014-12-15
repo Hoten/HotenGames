@@ -1,0 +1,19 @@
+body {
+  background-color: #F8F8F8;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.2em;
+  overflow: hidden;
+  padding: 0px;
+}
+
+h1, p {
+  color: #333;
+}
+
+#container {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}

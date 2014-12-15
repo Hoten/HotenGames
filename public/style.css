@@ -1,0 +1,91 @@
+body {
+  background-color: black;
+  overflow-x: hidden;
+}
+
+#selected {
+  border: ridge;
+}
+
+nav {
+  margin-top: 10px;
+  width: 235px;
+  display: block;
+  z-index: 3;
+  position: absolute;
+  color: #87cefa; 
+  text-shadow: blue 0.1em 0.1em 0.2em;
+}
+nav h1 {
+  font-size: 30px;
+  font-weight: 400;
+  text-transform: uppercase;
+  padding: 10px;
+}
+nav ul {
+  list-style: none
+}
+nav a {
+  color: inherit; 
+  display: block;
+  line-height: 50px;
+  padding: 0px 20px;
+  margin-bottom: 6px;
+  box-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+  font-size: 24px;
+  -webkit-user-select: none; /* Chrome/Safari */        
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+ */
+}
+nav a:hover {
+  background: rgba(255,255,255,0.3);
+}
+
+.panel {
+  min-width: 100%;
+  min-height: 98%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  margin-top: -150%;
+  position: absolute;
+  box-shadow: 0px 4px 7px rgba(0,0,0,0.6);
+  z-index: 2;
+  -webkit-transition: all .8s ease-in-out;
+  -moz-transition: all .8s ease-in-out;
+  -o-transition: all .8s ease-in-out;
+  transition: all .8s ease-in-out;
+}
+.panel:target {
+  margin-top: 0%;
+  background-color: black;
+}
+
+.content {
+  right: 40px;
+  left: 280px;
+  top: 0px;
+  position: absolute;
+  height: 95%;
+}
+.content p {
+  border: groove;
+  border-color: #87cefa;
+  width: 100%;
+  height: 100%;
+  font-size: 18px;
+  line-height: 24px;
+  color: #fff;
+  display: inline-block;
+  background: black;
+  margin: 3px 0px;
+  padding: 10px 10px 10px 10px;
+}
+.content iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+#about a {
+  color: white;
+}

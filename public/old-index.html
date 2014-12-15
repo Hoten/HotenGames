@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hoten Games</title>
+  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <script src="http://code.jquery.com/jquery-2.0.3.js"></script>
+  <script>
+  var iframes = 
+  {
+    'gridia': 'old-gridia/dart-version/webgl/index.html',
+    'gridia-playground': 'old-gridia/js-version/index.html',
+    'life': 'life/index.html',
+    'particles': 'particles/index.html',
+    'noisy': 'noisy/index.html',
+    'gridia-gamma': 'old-gridia/flash-version/index.html'
+  };
+
+  var loadFrame = function (hash) {
+    var domElement = document.getElementById(hash + "-iframe");
+    if (iframes[hash] !== undefined) {
+      domElement.src = iframes[hash];
+      domElement.onmouseover = domElement.onload = function() { domElement.contentWindow.focus(); }
+    }
+    setTimeout(function() { clearAllIframes(hash); }, 200);
+  }
+
+  var clearAllIframes = function (except) {
+    for (iframe in iframes) {
+      if (iframe !== except) document.getElementById(iframe + "-iframe").src = "#";
+    }
+  }
+  
+  $(document).ready(function() {
+    $(".showframe").click(function (event) {
+      var frameId = event.target.href.substring(event.target.href.indexOf("#") + 1);
+      if ("#" + frameId !== window.location.hash) loadFrame(frameId);
+      $(".showframe").each(function() {
+        this.id = "";
+      });
+      event.target.id = "selected";
+    });
+
+    var initialHash = window.location.hash.substring(window.location.hash.indexOf("#") + 1);
+    if (initialHash === "") {
+      window.location.hash = initialHash = "about";
+    }
+    document.getElementById("link-" + initialHash).id = "selected";
+    loadFrame(initialHash);
+  });
+  </script>
+</head>
+<body>
+  <nav>
+    <h1>Navigation</h1>
+    <ul>
+      <li><a class="showframe" href="#about" id="link-about">About</a></li>
+      <li><a class="showframe" href="#gridia">Gridia</a></li>
+      <li><a href="/fireworks/"><img src="external-link-icon.png" alt="External webpage">Fireworks!</a></li>
+      <li><a href="/blocks/"><img src="external-link-icon.png" alt="External webpage">Blocks</a></li>
+      <li><a class="showframe" href="#life" id="link-life">Life in Dart</a></li>
+      <li><a class="showframe" href="#particles" id="link-particles">Particles</a></li>
+      <li><a class="showframe" href="#gridia-playground" id="link-gridia-playground">Gridia test</a></li>
+      <li><a class="showframe" href="#gridia-gamma" id="link-gridia-gamma">Gridia gamma</a></li>
+      <li><a class="showframe" href="#noisy" id="link-noisy">Noisy</a></li>
+      <li><a href="https://twitter.com/cjamcl"><img src="external-link-icon.png" alt="External webpage">Twitter</a></li>
+      <li><a href="https://github.com/Hoten"><img src="external-link-icon.png" alt="External webpage">GitHub</a></li>
+      <li><a href="/blog"><img src="external-link-icon.png" alt="External webpage">Dev blog</a></li>
+    </ul>
+  </nav>
+
+  <div id="about" class="panel">
+    <div class="content">
+      <p>Follow me on twitter! <a href="https://twitter.com/cjamcl" target="_blank">@cjamcl</a></p>
+    </div>
+  </div>
+
+  <div id="gridia-playground" class="panel">
+    <div class="content">
+      <p>
+        <iframe src="#" id="gridia-playground-iframe"></iframe>
+      </p>
+    </div>
+  </div>
+
+  <div id="gridia" class="panel">
+    <div class="content">
+      <p>
+        <iframe src="#" id="gridia-iframe"></iframe>
+      </p>
+    </div>
+  </div>
+  
+  <div id="gridia-gamma" class="panel">
+    <div class="content">
+      <p>
+        <iframe src="#" id="gridia-gamma-iframe"></iframe>
+      </p>
+    </div>
+  </div>
+  
+  <div id="life" class="panel">
+    <div class="content">
+      <p>
+        <iframe src="#" id="life-iframe"></iframe>
+      </p>
+    </div>
+  </div>
+  
+  <div id="particles" class="panel">
+    <div class="content">
+      <p>
+        <iframe src="#" id="particles-iframe"></iframe>
+      </p>
+    </div>
+  </div>
+
+  <div id="noisy" class="panel">
+    <div class="content">
+      <p>
+        <iframe src="#" id="noisy-iframe"></iframe>
+      </p>
+    </div>
+  </div>
+</body>
+</html>

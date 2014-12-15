@@ -1,0 +1,49 @@
+<style type="text/css">  
+  html, body {height:100%;}
+  html {display:table; width:100%;}
+  body {display:table-cell; text-align:center; vertical-align:middle;}
+</style>
+
+<body bgcolor=black text=white link=white vlink=grey alink="#FF0000" text-align="center">
+This is an old version of Gridia! Entirely in actionscript 3. After realizing the original code was pretty bad, I decided to start from scratch and came up with this.
+<br><br><br>
+
+<span id="root"></span>
+
+<script>
+  function getUrlVars() {
+      var vars = {};
+      var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+          vars[key] = value;
+      });
+      return vars;
+  }
+
+  function onLoad()
+  {
+    var val = parseInt(getUrlVars()['build']);
+    console.log(val);
+    if (isNaN(val)) val = 8;
+    var width = 608;
+    var height = 544;
+    if (val == 1) {
+      width = 640;
+      height = 480;
+    }
+    instruct = "";
+    switch(val){
+      case 1: instruct = "Click to toggle land/water."; break;
+      case 2: instruct = "Ctrl-click to toggle land/water. Spacebar for random melee attack. Click for magic attack. WASD to change directions for melee."; break;
+      case 3: instruct = "Press L to adjust light. Ctrl-click and alt-click to create. Click on enemy to focus your aim. Spacebar for attack, melee if close, magic if far."; break;
+      case 4: instruct = "Mouse wheel to zoom on map. WASD and arrow keys to move. Press L to adjust light. Ctrl-click and alt-click to create. Click on enemy to focus your aim. Spacebar to focus on closest enemy and to attack, melee if close, magic if far."; break;
+      case 5: instruct = "Mouse wheel to zoom on map. WASD and arrow keys to move. Press L to adjust light. Ctrl-click and alt-click to create. Click on enemy to focus your aim. Spacebar to focus on closest enemy and to attack, magic attack if an attack spell is selected, melee attack otherwise."; break;
+      case 6: instruct = "Drag and drop items to move them. Mouse wheel to zoom on map. WASD and arrow keys to move. Press L to adjust light. Ctrl-click and alt-click to create. Click on enemy to focus your aim. Spacebar to focus on closest enemy and to attack, magic attack if an attack spell is selected, melee attack otherwise."; break;
+      case 7: instruct = "Double click an item from your inventory  to use as a tool, and click on an item in the world to try and use it. Double click on an item in the world to use your hands with it. Drag and drop items to move them. Drag and drop items from within your inventory to equip them, double click to unequip. Mouse wheel to zoom on map. WASD and arrow keys to move. Press L to adjust light. <b>FOR THE LOVE OF GOD DO NOT PRESS M.</b> Ctrl-click to toggle the floor. Click on enemy to focus your aim. Spacebar to focus on closest enemy and to attack, magic attack if an attack spell is selected, melee attack otherwise."; break;
+      case 8: instruct = "Press T for screenshot. Double click an item from your inventory  to use as a tool, and click on an item in the world to try and use it. Double click on an item in the world to use your hands with it. Drag and drop items to move them. Drag and drop items from within your inventory to equip them, double click to unequip. Mouse wheel to zoom on map. WASD and arrow keys to move. Press L to adjust light. <b>FOR THE LOVE OF GOD DO NOT PRESS M.</b> Ctrl-click to toggle the floor. Click on enemy to focus your aim. Spacebar to focus on closest enemy and to attack, magic attack if an attack spell is selected, melee attack otherwise."; break;
+    }
+    var root = document.getElementById('root');
+    root.innerHTML += "<div><embed src=\"build"+val+".swf\" width=\""+width+"\"height=\""+height+"\"allowscriptaccess=\"always\"allowfullscreen=\"true\" /></div>";
+    root.innerHTML += "<p>"+instruct+"</p>";
+  }
+  window.onload=onLoad;
+</script>
