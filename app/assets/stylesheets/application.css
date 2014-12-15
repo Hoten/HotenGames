@@ -27,6 +27,7 @@ body {
   line-height: 18px;
   margin:50px 0px; padding:0px;
   text-align:center;
+  background-image: url('/assets/background.png')
 }
 
 #body_content, #side_body_content, nav {
