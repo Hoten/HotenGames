@@ -21,7 +21,6 @@
 @import url('refinery/application.css');
 
 body {
-  background: #DDD;
   font-family: Verdana;
   font-size: 13px;
   line-height: 18px;
@@ -30,9 +29,39 @@ body {
   background-image: url('/assets/background.png')
 }
 
+footer p {
+  color: white;
+}
+
+.blog_post~.blog_post {
+  border-top: 1px solid #000000;
+}
+
+h2~h2 {
+  border-top: 1px solid #000000;
+}
+
 #body_content, #side_body_content, nav {
   width: 960px;
   margin: 0 auto;
+}
+
+#next_prev_article {
+  width: 600px;
+}
+
+#blog_post {
+  word-wrap: break-word;
+}
+
+#tags {
+  width: 100%;
+  margin: 0 auto;
+}
+
+#tags a, #blog_posts li a {
+  background-color: #aaa;
+  padding: 2px;
 }
 
 #body_content {
@@ -60,5 +89,5 @@ body {
 }
 
 #menu ul li.selected a, #menu ul li a:hover {
-  background: #CCC;
+  background: #bbb;
 }
